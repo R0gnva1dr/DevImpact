@@ -93,7 +93,6 @@ export function TopList({ userResults }: Props) {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Top Repos */}
             <div>
               <h4 className="font-semibold flex items-center gap-2 mb-3 text-sm">
                 <Star className="h-4 w-4" /> Top Repositories
@@ -103,6 +102,9 @@ export function TopList({ userResults }: Props) {
                   cardDetails({
                     key: `repo-${i}`,
                     title: repo.name || "Unknown Repository",
+                    titleUrl: repo.name
+                      ? `https://github.com/${user.username}/${repo.name}`
+                      : undefined,
                     score: repo.score,
                     badges: [
                       {
